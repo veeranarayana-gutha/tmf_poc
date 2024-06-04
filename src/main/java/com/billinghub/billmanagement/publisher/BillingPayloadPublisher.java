@@ -1,12 +1,10 @@
 package com.billinghub.billmanagement.publisher;
 
+import com.billinghub.billmanagement.dto.BillingPayload;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import com.billinghub.billmanagement.dto.BillingPayload;
 
 @Service
 public class BillingPayloadPublisher {

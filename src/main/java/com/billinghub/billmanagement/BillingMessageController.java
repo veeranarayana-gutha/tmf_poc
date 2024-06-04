@@ -6,15 +6,10 @@ import com.billinghub.billmanagement.publisher.BillingPayloadPublisher;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
-import org.springframework.util.FileCopyUtils;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UncheckedIOException;
 import java.nio.file.Files;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -71,5 +66,13 @@ public class BillingMessageController {
        //     throw new UncheckedIOException(e);
         //}
    // }
+
+    @PostMapping("/publishBillingPayload")
+    public void publishBillingPayload1(@RequestBody BillingPayload message){
+
+        System.out.println("publish billpayload..............");
+        billingPayloadPublisher.publishMessage(message);
+
+    }
 
 }

@@ -1,11 +1,9 @@
 package com.billinghub.billmanagement.repository;
 
-import com.billinghub.billmanagement.dto.BillingPayload;
+import com.billinghub.billmanagement.dto.BillingPayloadClob;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BillingPayloadRepository extends JpaRepository<BillingPayload, Long >{
-
-
+public interface BillingPayloadClobRepository extends JpaRepository<BillingPayloadClob, Long >{
 }
