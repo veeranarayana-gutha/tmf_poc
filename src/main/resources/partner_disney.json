@@ -1,0 +1,168 @@
+{
+    "@type": "BillingAccount",
+    "id": "5432",
+    "href": "https://host:port/tmf-api/accountManagement/v5/billingAccount/5432",
+    "name": "Disney Media Distribution Account",
+    "description": "Billing account for handling Disney's media distribution revenues and royalties, providing detailed financial insights.",
+    "paymentStatus": "Current",
+    "creditLimit": {
+        "unit": "USD",
+        "value": 100000
+    },
+    "state": "Active",
+    "accountType": "Corporate",
+    "lastModified": "2024-05-10T00:00:00.000Z",
+    "billStructure": {
+        "@type": "BillStructure",
+        "presentationMedia": [
+            {
+                "@type": "BillPresentationMedia",
+                "href": "https://host:port/tmf-api/accountManagement/v5/billPresentationMedia/9970",
+                "id": "9970",
+                "name": "Electronic"
+            }
+        ],
+        "format": {
+            "@type": "BillFormat",
+            "href": "https://host:port/tmf-api/accountManagement/v5/billFormat/3557",
+            "id": "3557",
+            "name": "Consolidated invoice"
+        },
+        "cycleSpecification": {
+            "@type": "BillingCycleSpecification",
+            "dateShift": 30,
+            "frequency": "monthly",
+            "href": "https://host:port/tmf-api/accountManagement/v5/billingCycleSpecification/3830",
+            "id": "3830",
+            "name": "Monthly Media Cycle"
+        }
+    },
+    "paymentPlan": [
+        {
+            "@type": "PaymentPlan",
+            "numberOfPayments": 12,
+            "paymentFrequency": "monthly",
+            "priority": 1,
+            "status": "Active",
+            "totalAmount": {
+                "unit": "USD",
+                "value": 5000
+            },
+            "paymentType": "regular",
+            "validFor": {
+                "startDateTime": "2024-01-01T00:00:00.000Z",
+                "endDateTime": "2024-12-31T00:00:00.000Z"
+            },
+            "paymentMethod": {
+                "@type": "PaymentMethodRef",
+                "href": "https://host:port/tmf-api/paymentMethods/v5/paymentMethod/2454",
+                "id": "2454",
+                "name": "Corporate Bank Transfer"
+            }
+        }
+    ],
+    "financialAccount": {
+        "@referredType": "FinancialAccount",
+        "@type": "FinancialAccountRef",
+        "href": "https://host:port/tmf-api/accountManagement/v5/financialAccount/2065",
+        "id": "2065",
+        "name": "Disney Operations Account"
+    },
+    "defaultPaymentMethod": {
+        "@type": "PaymentMethodRef",
+        "href": "https://host:port/tmf-api/paymentMethods/v5/paymentMethod/3539",
+        "id": "3539",
+        "name": "Automated Clearing House (ACH)"
+    },
+    "relatedParty": [
+        {
+            "role": "content provider",
+            "@type": "RelatedPartyRefOrPartyRoleRef",
+            "partyOrPartyRole": {
+                "@type": "PartyRefOrPartyRoleRef",
+                "@referredType": "Organization",
+                "href": "https://host:port/tmf-api/partyManagement/v5/party/200",
+                "id": "200",
+                "name": "The Walt Disney Company"
+            }
+        }
+    ],
+    "taxExemption": [
+        {
+            "@type": "TaxExemption",
+            "id": "3",
+            "certificateNumber": "987654321",
+            "issuingJurisdiction": "USA",
+            "reason": "Non-profit Media Distribution",
+            "taxDefinition": [
+                {
+                    "@type": "TaxDefinition",
+                    "id": "98",
+                    "name": "Corporate Tax Exemption",
+                    "taxType": "federalTaxExemption"
+                }
+            ],
+            "attachment": {
+                "@type": "Attachment",
+                "id": "99999987654322",
+                "href": "https://host:port/tmf-api/document/v5/attachment/99999987654322",
+                "attachmentType": "taxExemptionCertificate",
+                "name": "TaxExemptionCertificate-999.pdf",
+                "description": "Electronic version of the corporate tax exemption certificate",
+                "mimeType": "application/pdf",
+                "url": "http://host:port/DocumentManager/999/TaxExemptionCertificate-999.pdf"
+            },
+            "validFor": {
+                "startDateTime": "2024-01-01T00:00:00.000Z",
+                "endDateTime": "2029-01-01T00:00:00.000Z"
+            }
+        }
+    ],
+    "contact": [
+        {
+            "@type": "Contact",
+            "contactName": "Disney Financial Services",
+            "contactType": "primary",
+            "partyRoleType": "Account Management",
+            "validFor": {
+                "startDateTime": "2024-01-01T00:00:00.000Z",
+                "endDateTime": "2029-01-01T00:00:00.000Z"
+            },
+            "contactMedium": [
+                {
+                    "@type": "GeographicAddressContactMedium",
+                    "preferred": true,
+                    "mediumType": "Email",
+                    "validFor": {
+                        "startDateTime": "2024-01-01T00:00:00.000Z",
+                        "endDateTime": "2029-01-01T00:00:00.000Z"
+                    },
+                    "emailAddress": "finance@disney.com"
+                }
+            ],
+            "relatedParty": {
+                "@type": "Organization",
+                "href": "https://host:port/tmf-api/partyManagement/v5/party/200",
+                "id": "200",
+                "name": "The Walt Disney Company",
+                "role": "Account Holder"
+            }
+        }
+    ],
+    "accountRelationship": [
+        {
+            "@type": "AccountRelationship",
+            "relationshipType": "Connected",
+            "validFor": {
+                "startDateTime": "2024-01-01T00:00:00.000Z"
+            },
+            "account": {
+                "@referredType": "BillingAccount",
+                "@type": "AccountRef",
+                "href": "https://host:port/tmf-api/accountManagement/v5/billingAccount/7341",
+                "id": "7341",
+                "name": "Verizon Communications Corporate Account"
+            }
+        }
+    ]
+}

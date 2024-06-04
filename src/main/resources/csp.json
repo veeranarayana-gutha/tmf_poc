@@ -1,0 +1,152 @@
+{
+    "@type": "BillingAccount",
+    "id": "5431",
+    "href": "https://host:port/tmf-api/accountManagement/v5/billingAccount/5431",
+    "name": "Verizon Business Account",
+    "description": "Billing account for Verizon's business customers, providing detailed invoices and flexible payment options.",
+    "paymentStatus": "Current",
+    "creditLimit": {
+        "unit": "USD",
+        "value": 50000
+    },
+    "state": "Active",
+    "accountType": "Business",
+    "lastModified": "2024-05-10T00:00:00.000Z",
+    "billStructure": {
+        "@type": "BillStructure",
+        "presentationMedia": [
+            {
+                "@type": "BillPresentationMedia",
+                "href": "https://host:port/tmf-api/accountManagement/v5/billPresentationMedia/9969",
+                "id": "9969",
+                "name": "Email"
+            }
+        ],
+        "format": {
+            "@type": "BillFormat",
+            "href": "https://host:port/tmf-api/accountManagement/v5/billFormat/3556",
+            "id": "3556",
+            "name": "Itemized invoice"
+        },
+        "cycleSpecification": {
+            "@type": "BillingCycleSpecification",
+            "dateShift": 15,
+            "frequency": "monthly",
+            "href": "https://host:port/tmf-api/accountManagement/v5/billingCycleSpecification/3829",
+            "id": "3829",
+            "name": "Monthly Billing"
+        }
+    },
+    "paymentPlan": [
+        {
+            "@type": "PaymentPlan",
+            "numberOfPayments": 12,
+            "paymentFrequency": "monthly",
+            "priority": 1,
+            "status": "Active",
+            "totalAmount": {
+                "unit": "USD",
+                "value": 300
+            },
+            "paymentType": "regular",
+            "validFor": {
+                "startDateTime": "2024-01-01T00:00:00.000Z",
+                "endDateTime": "2024-12-31T00:00:00.000Z"
+            },
+            "paymentMethod": {
+                "@type": "PaymentMethodRef",
+                "href": "https://host:port/tmf-api/paymentMethods/v5/paymentMethod/2453",
+                "id": "2453",
+                "name": "Direct debit"
+            }
+        }
+    ],
+    "financialAccount": {
+        "@referredType": "FinancialAccount",
+        "@type": "FinancialAccountRef",
+        "href": "https://host:port/tmf-api/accountManagement/v5/financialAccount/2064",
+        "id": "2064",
+        "name": "Verizon Operational Account"
+    },
+    "defaultPaymentMethod": {
+        "@type": "PaymentMethodRef",
+        "href": "https://host:port/tmf-api/paymentMethods/v5/paymentMethod/3538",
+        "id": "3538",
+        "name": "Corporate Credit Card"
+    },
+    "relatedParty": [
+        {
+            "role": "service provider",
+            "@type": "RelatedPartyRefOrPartyRoleRef",
+            "partyOrPartyRole": {
+                "@type": "PartyRefOrPartyRoleRef",
+                "@referredType": "Organization",
+                "href": "https://host:port/tmf-api/partyManagement/v5/party/128",
+                "id": "128",
+                "name": "Verizon Communications"
+            }
+        }
+    ],
+    "taxExemption": [
+        {
+            "@type": "TaxExemption",
+            "id": "2",
+            "certificateNumber": "9876543210",
+            "issuingJurisdiction": "USA",
+            "reason": "Corporate",
+            "taxDefinition": [
+                {
+                    "@type": "TaxDefinition",
+                    "id": "97",
+                    "name": "State Sales Tax",
+                    "taxType": "stateSalesTax"
+                }
+            ],
+            "attachment": {
+                "@type": "Attachment",
+                "id": "99999987654321",
+                "href": "https://host:port/tmf-api/document/v5/attachment/99999987654321",
+                "attachmentType": "taxExemptionCertificate",
+                "name": "TaxExemptionCertificate-999.pdf",
+                "description": "Electronic version of the tax exemption certificate",
+                "mimeType": "application/pdf",
+                "url": "http://host:port/DocumentManager/999/TaxExemptionCertificate-999.pdf"
+            },
+            "validFor": {
+                "startDateTime": "2024-01-01T00:00:00.000Z",
+                "endDateTime": "2029-01-01T00:00:00.000Z"
+            }
+        }
+    ],
+    "contact": [
+        {
+            "@type": "Contact",
+            "contactName": "Verizon Business Services",
+            "contactType": "primary",
+            "partyRoleType": "Customer Service",
+            "validFor": {
+                "startDateTime": "2024-01-01T00:00:00.000Z",
+                "endDateTime": "2029-01-01T00:00:00.000Z"
+            },
+            "contactMedium": [
+                {
+                    "@type": "GeographicAddressContactMedium",
+                    "preferred": true,
+                    "mediumType": "Email",
+                    "validFor": {
+                        "startDateTime": "2024-01-01T00:00:00.000Z",
+                        "endDateTime": "2029-01-01T00:00:00.000Z"
+                    },
+                    "emailAddress": "business@verizon.com"
+                }
+            ],
+            "relatedParty": {
+                "@type": "Organization",
+                "href": "https://host:port/tmf-api/partyManagement/v5/party/128",
+                "id": "128",
+                "name": "Verizon Communications",
+                "role": "Account Holder"
+            }
+        }
+    ]
+}

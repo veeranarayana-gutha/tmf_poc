@@ -1,0 +1,168 @@
+{
+    "@type": "BillingAccount",
+    "id": "5433",
+    "href": "https://host:port/tmf-api/accountManagement/v5/billingAccount/5433",
+    "name": "Netflix Media Distribution Account",
+    "description": "Billing account for handling Netflix's media distribution revenues and royalties, providing detailed financial insights.",
+    "paymentStatus": "Current",
+    "creditLimit": {
+        "unit": "USD",
+        "value": 150000
+    },
+    "state": "Active",
+    "accountType": "Corporate",
+    "lastModified": "2024-05-10T00:00:00.000Z",
+    "billStructure": {
+        "@type": "BillStructure",
+        "presentationMedia": [
+            {
+                "@type": "BillPresentationMedia",
+                "href": "https://host:port/tmf-api/accountManagement/v5/billPresentationMedia/9971",
+                "id": "9971",
+                "name": "Electronic"
+            }
+        ],
+        "format": {
+            "@type": "BillFormat",
+            "href": "https://host:port/tmf-api/accountManagement/v5/billFormat/3558",
+            "id": "3558",
+            "name": "Consolidated invoice"
+        },
+        "cycleSpecification": {
+            "@type": "BillingCycleSpecification",
+            "dateShift": 30,
+            "frequency": "monthly",
+            "href": "https://host:port/tmf-api/accountManagement/v5/billingCycleSpecification/3831",
+            "id": "3831",
+            "name": "Monthly Media Cycle"
+        }
+    },
+    "paymentPlan": [
+        {
+            "@type": "PaymentPlan",
+            "numberOfPayments": 12,
+            "paymentFrequency": "monthly",
+            "priority": 1,
+            "status": "Active",
+            "totalAmount": {
+                "unit": "USD",
+                "value": 6000
+            },
+            "paymentType": "regular",
+            "validFor": {
+                "startDateTime": "2024-01-01T00:00:00.000Z",
+                "endDateTime": "2024-12-31T00:00:00.000Z"
+            },
+            "paymentMethod": {
+                "@type": "PaymentMethodRef",
+                "href": "https://host:port/tmf-api/paymentMethods/v5/paymentMethod/2455",
+                "id": "2455",
+                "name": "Corporate Bank Transfer"
+            }
+        }
+    ],
+    "financialAccount": {
+        "@referredType": "FinancialAccount",
+        "@type": "FinancialAccountRef",
+        "href": "https://host:port/tmf-api/accountManagement/v5/financialAccount/2066",
+        "id": "2066",
+        "name": "Netflix Operations Account"
+    },
+    "defaultPaymentMethod": {
+        "@type": "PaymentMethodRef",
+        "href": "https://host:port/tmf-api/paymentMethods/v5/paymentMethod/3540",
+        "id": "3540",
+        "name": "Automated Clearing House (ACH)"
+    },
+    "relatedParty": [
+        {
+            "role": "content provider",
+            "@type": "RelatedPartyRefOrPartyRoleRef",
+            "partyOrPartyRole": {
+                "@type": "PartyRefOrPartyRoleRef",
+                "@referredType": "Organization",
+                "href": "https://host:port/tmf-api/partyManagement/v5/party/500",
+                "id": "500",
+                "name": "Netflix"
+            }
+        }
+    ],
+    "taxExemption": [
+        {
+            "@type": "TaxExemption",
+            "id": "4",
+            "certificateNumber": "987654322",
+            "issuingJurisdiction": "USA",
+            "reason": "Non-profit Media Distribution",
+            "taxDefinition": [
+                {
+                    "@type": "TaxDefinition",
+                    "id": "99",
+                    "name": "Corporate Tax Exemption",
+                    "taxType": "federalTaxExemption"
+                }
+            ],
+            "attachment": {
+                "@type": "Attachment",
+                "id": "99999987654323",
+                "href": "https://host:port/tmf-api/document/v5/attachment/99999987654323",
+                "attachmentType": "taxExemptionCertificate",
+                "name": "TaxExemptionCertificate-999.pdf",
+                "description": "Electronic version of the corporate tax exemption certificate",
+                "mimeType": "application/pdf",
+                "url": "http://host:port/DocumentManager/999/TaxExemptionCertificate-999.pdf"
+            },
+            "validFor": {
+                "startDateTime": "2024-01-01T00:00:00.000Z",
+                "endDateTime": "2029-01-01T00:00:00.000Z"
+            }
+        }
+    ],
+    "contact": [
+        {
+            "@type": "Contact",
+            "contactName": "Netflix Financial Services",
+            "contactType": "primary",
+            "partyRoleType": "Account Management",
+            "validFor": {
+                "startDateTime": "2024-01-01T00:00:00.000Z",
+                "endDateTime": "2029-01-01T00:00:00.000Z"
+            },
+            "contactMedium": [
+                {
+                    "@type": "GeographicAddressContactMedium",
+                    "preferred": true,
+                    "mediumType": "Email",
+                    "validFor": {
+                        "startDateTime": "2024-01-01T00:00:00.000Z",
+                        "endDateTime": "2029-01-01T00:00:00.000Z"
+                    },
+                    "emailAddress": "finance@netflix.com"
+                }
+            ],
+            "relatedParty": {
+                "@type": "Organization",
+                "href": "https://host:port/tmf-api/partyManagement/v5/party/500",
+                "id": "500",
+                "name": "Netflix",
+                "role": "Account Holder"
+            }
+        }
+    ],
+    "accountRelationship": [
+        {
+            "@type": "AccountRelationship",
+            "relationshipType": "Connected",
+            "validFor": {
+                "startDateTime": "2024-01-01T00:00:00.000Z"
+            },
+            "account": {
+                "@referredType": "BillingAccount",
+                "@type": "AccountRef",
+                "href": "https://host:port/tmf-api/accountManagement/v5/billingAccount/7341",
+                "id": "7341",
+                "name": "Verizon Communications Corporate Account"
+            }
+        }
+    ]
+}
