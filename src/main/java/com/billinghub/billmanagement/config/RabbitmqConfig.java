@@ -1,5 +1,6 @@
 package com.billinghub.billmanagement.config;
 
+import com.billinghub.billmanagement.common.CSPInfoConverter;
 import com.rabbitmq.client.AMQP;
 
 import org.springframework.amqp.core.*;
@@ -38,15 +39,15 @@ public class RabbitmqConfig {
         return BindingBuilder.bind(queue()).to(exchange()).with(routingKeyName);
     }
 
-    @Bean
-    public MessageConverter converter(){
-        return new Jackson2JsonMessageConverter();
-    }
+//    @Bean
+//    public MessageConverter converter(){
+//        return new Jackson2JsonMessageConverter();
+//    }
 
     @Bean
-    public AmqpTemplate amqpTemplate(ConnectionFactory connectionFactory){
+    public AmqpTemplate amqpTemplate(ConnectionFactory connectionFactory, CSPInfoConverter cspInfoConverter){
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
-        rabbitTemplate.setMessageConverter(converter());
+        rabbitTemplate.setMessageConverter(cspInfoConverter);
         return rabbitTemplate;
     }
 }
