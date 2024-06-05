@@ -72,9 +72,9 @@
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
-				<includes>
+			<!--	<includes>
 					<include>**/*.properties</include>
-				</includes>
+				</includes>-->
 			</resource>
 		</resources>
 		<plugins>
