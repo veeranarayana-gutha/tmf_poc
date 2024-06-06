@@ -68,10 +68,11 @@ public class BillingMessageController {
    // }
 
     @PostMapping("/publishBillingPayload")
-    public void publishBillingPayload1(@RequestBody BillingPayload message){
+    public void publishBillingPayload1(@RequestBody String message){
 
         System.out.println("publish billpayload..............");
-        billingPayloadPublisher.publishMessage(message);
+        System.out.println(message);
+        billingPayloadPublisher.sendMessage(message);
 
     }
 

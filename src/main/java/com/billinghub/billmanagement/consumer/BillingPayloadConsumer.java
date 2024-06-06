@@ -1,37 +1,45 @@
 package com.billinghub.billmanagement.consumer;
 
 import com.billinghub.billmanagement.dto.BillingPayload;
-import com.billinghub.billmanagement.dto.BillingPayloadClob;
-import com.billinghub.billmanagement.repository.BillingPayloadClobRepository;
+import com.billinghub.billmanagement.dto.CspInfo;
+import com.billinghub.billmanagement.repository.CspInfoRepository;
+import com.billinghub.billmanagement.util.JsonUtil;
+import com.google.gson.JsonSyntaxException;
+import org.codehaus.plexus.util.StringUtils;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.billinghub.billmanagement.repository.BillingPayloadRepository;
+import java.util.Random;
 
 @Service
 public class BillingPayloadConsumer {
-
-    @Autowired
-    private BillingPayloadRepository billingPayloadRepository;
-
-    @Autowired
-    private BillingPayloadClobRepository billingPayloadClobRepository;
+     @Autowired
+     private CspInfoRepository cspInfoRepository;
 
 
     @RabbitListener(queues ="${spring.rabbitmq.queue}")
-    public void processBillingPayload(BillingPayload message) {
-        //For now used BillingPayload object String , to insert as Clob later directly
-       // use the json String
-        System.out.println(message.toString());
-        //Logic to insert data in clob table
-        BillingPayloadClob billingPayloadClob = new BillingPayloadClob();
-        billingPayloadClob.setId(message.getId());
-        billingPayloadClob.setBillingPayload(message.toString());
-        billingPayloadClobRepository.save(billingPayloadClob);
-
-        //logic to map the billing data to appropriate table
-        billingPayloadRepository.save(message);
+    public void processBillingPayload(String message) {
+        System.out.println("Message Received : -----------------------------------");
+        System.out.println(message);
+        System.out.println("-------------------------------------------------------");
+        try {
+            if (StringUtils.isNotBlank(message)) {
+                BillingPayload  billingPayload = JsonUtil.convertJsonToTargetPojoObject(message, BillingPayload.class);
+                if (billingPayload != null) {
+                    //set all the required fields into specific tables based on condition
+                        CspInfo cspInfo = new CspInfo();
+                        cspInfo.setJson(message);
+                        cspInfo.setCspId(billingPayload.getId());
+                        cspInfo.setCspName(billingPayload.getName());
+                        cspInfoRepository.save(cspInfo);
+                }
+            }
+        }catch(JsonSyntaxException e) {
+            System.out.println("Message Parsing Failed:" + e.getMessage());
+        }catch(Exception e){
+            System.out.println("Exception occured while processing the event" + e.getMessage());
+        }
     }
 
 

@@ -1,9 +1,9 @@
 package com.billinghub.billmanagement.repository;
 
-import com.billinghub.billmanagement.dto.BillingPayloadClob;
+import com.billinghub.billmanagement.dto.CspInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BillingPayloadClobRepository extends JpaRepository<BillingPayloadClob, Long >{
+public interface CspInfoRepository extends JpaRepository<CspInfo,Long> {
 }

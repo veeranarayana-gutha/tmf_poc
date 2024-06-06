@@ -19,7 +19,7 @@ public class BillingPayloadPublisher {
 
     public BillingPayloadPublisher(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
-        rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
+       // rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
     }
 
     public void sendMessage(String message){
