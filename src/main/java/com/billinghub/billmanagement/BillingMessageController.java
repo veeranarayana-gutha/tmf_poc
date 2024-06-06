@@ -31,22 +31,15 @@ public class BillingMessageController {
     Resource resourceFile;
 
 
+   
+
     @GetMapping("/publish")
-    public String publishBillingPayload(@RequestParam("message") String message){
-        
-        billingPayloadPublisher.sendMessage(message);
-        return "Message sent successfully";
-
-    }
-
-    @PostMapping("/publish")
-    public void publishBillingPayload(@RequestBody BillingPayload message){
+    public void publishBillingPayload(){
     
         try{
             File file = resourceFile.getFile();
-            System.out.println(file.toPath());
             String content = new String(Files.readAllBytes(file.toPath()));
-            System.out.println(content);
+            billingPayloadPublisher.sendMessage(content);
 
         } catch(Exception e){
             System.out.println(e.getMessage());
@@ -54,9 +47,18 @@ public class BillingMessageController {
        
 
         System.out.println("publish billpayload..............");
-        billingPayloadPublisher.publishMessage(message);
 
     }
+
+    @PostMapping("/publishBillingPayload")
+    public void publishBillingPayload1(@RequestBody String message){
+
+        System.out.println("publish billpayload..............");
+        System.out.println(message);
+        billingPayloadPublisher.sendMessage(message);
+
+    }
+
     
     @PostMapping("/publishAsStringAndConsumeAsObject")
     public void publishAsStringAndConsumeAsObject(@RequestBody String message){
@@ -66,6 +68,7 @@ public class BillingMessageController {
             System.out.println(file.toPath());
             String content = new String(Files.readAllBytes(file.toPath()));
             System.out.println(content);
+            billingPayloadPublisher.sendMessage(content);
 
         } catch(Exception e){
             System.out.println(e.getMessage());
@@ -73,16 +76,8 @@ public class BillingMessageController {
        
 
         System.out.println("publish billpayload..............");
-        billingPayloadPublisher.sendMessage(message);
+       
 
     }
-
-   // public static String asString(Resource resource) {
-       // try (Reader reader = new InputStreamReader(resource.getInputStream(), UTF_8)) {
-         //   return FileCopyUtils.copyToString(reader);
-       // } catch (IOException e) {
-       //     throw new UncheckedIOException(e);
-        //}
-   // }
 
 }
