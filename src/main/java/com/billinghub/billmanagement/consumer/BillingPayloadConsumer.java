@@ -1,6 +1,5 @@
 package com.billinghub.billmanagement.consumer;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -27,8 +26,7 @@ public class BillingPayloadConsumer {
     private PartnerInfoRepository partnerInfoRepository;
 
 
-    
-   // @RabbitListener(queues ="${spring.rabbitmq.queue}")
+    @RabbitListener(queues ="${spring.rabbitmq.csp.queue}")
     public void processBillingPayload(String message){
         try {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -54,7 +52,7 @@ public class BillingPayloadConsumer {
         }
     }
 
-        @RabbitListener(queues ="${spring.rabbitmq.queue}")
+        @RabbitListener(queues ="${spring.rabbitmq.partner.queue}")
         public void processPartnerPayload(String message){
             try {
                 ObjectMapper objectMapper = new ObjectMapper();

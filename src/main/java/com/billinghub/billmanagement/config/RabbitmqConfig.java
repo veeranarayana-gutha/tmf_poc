@@ -5,26 +5,37 @@ import com.rabbitmq.client.AMQP;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
-import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+
+@Configuration
 public class RabbitmqConfig {
 
-    @Value("${spring.rabbitmq.queue}")
-    private String queueName;
+    @Value("${spring.rabbitmq.csp.queue}")
+    private String cspQueueName;
+
+    @Value("${spring.rabbitmq.partner.queue}")
+    private String partnerQueueName;
 
     @Value("${spring.rabbitmq.exchange}")
     private String exchangeName;
 
-    @Value("${spring.rabbitmq.routing_key}")
-    private String routingKeyName;
+    @Value("${spring.rabbitmq.csp.routing_key}")
+    private String cspRoutingKeyName;
+
+    @Value("${spring.rabbitmq.partner.routing_key}")
+    private String partnerRoutingKeyName;
 
     @Bean
-    public Queue queue(){
-        return new Queue(queueName);
+    public Queue cspQueue(){
+        return new Queue(cspQueueName);
+    }
+
+    @Bean
+    public Queue partnerQueue(){
+        return new Queue(partnerQueueName);
     }
 
     @Bean
@@ -33,10 +44,15 @@ public class RabbitmqConfig {
     }
 
     @Bean
-    public Binding binding(){
-        return BindingBuilder.bind(queue()).to(exchange()).with(routingKeyName);
+    public Binding cspBinding(){
+        return BindingBuilder.bind(cspQueue()).to(exchange()).with(cspRoutingKeyName);
     }
 
+
+    @Bean
+    public Binding partnerBinding(){
+        return BindingBuilder.bind(partnerQueue()).to(exchange()).with(partnerRoutingKeyName);
+    }
 
     @Bean
     public AmqpTemplate amqpTemplate(ConnectionFactory connectionFactory){

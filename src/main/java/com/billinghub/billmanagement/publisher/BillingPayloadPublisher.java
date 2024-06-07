@@ -11,8 +11,11 @@ public class BillingPayloadPublisher {
     @Value("${spring.rabbitmq.exchange}")
     private String exchangeName;
 
-    @Value("${spring.rabbitmq.routing_key}")
-    private String routingKeyName;
+    @Value("${spring.rabbitmq.csp.routing_key}")
+    private String cspRoutingKeyName;
+
+    @Value("${spring.rabbitmq.partner.routing_key}")
+    private String partnerRoutingKeyName;
 
     private RabbitTemplate rabbitTemplate;
 
@@ -20,8 +23,14 @@ public class BillingPayloadPublisher {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void sendMessage(String message){
-        rabbitTemplate.convertAndSend(exchangeName,routingKeyName,message);
+
+    public void sendCspMessage(String message){
+        rabbitTemplate.convertAndSend(exchangeName,cspRoutingKeyName,message);
+
+    }
+
+    public void sendPartnerMessage(String message){
+        rabbitTemplate.convertAndSend(exchangeName,partnerRoutingKeyName,message);
 
     }
 }
