@@ -3,10 +3,10 @@ package com.billinghub.billmanagement.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.billinghub.billmanagement.dto.BillingPayload;
+import com.billinghub.billmanagement.model.PartnerInfo;
 
 @Repository
-public interface BillingPayloadRepository extends JpaRepository<BillingPayload, Long >{
+public interface PartnerInfoRepository extends JpaRepository<PartnerInfo, Long >{
 
 
 

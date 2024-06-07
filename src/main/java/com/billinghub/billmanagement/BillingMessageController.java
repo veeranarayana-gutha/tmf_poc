@@ -30,11 +30,14 @@ public class BillingMessageController {
     @Value("classpath:csp.json")
     Resource resourceFile;
 
+    @Value("classpath:partner_disney.json")
+    Resource partnerResourceFile;
+
 
    
 
     @GetMapping("/publish")
-    public void publishBillingPayload(){
+    public void publishCspPayload(){
     
         try{
             File file = resourceFile.getFile();
@@ -49,6 +52,24 @@ public class BillingMessageController {
         System.out.println("publish billpayload..............");
 
     }
+
+    @GetMapping("/publishPartner")
+    public void publishPartnerPayload(){
+    
+        try{
+            File file = partnerResourceFile.getFile();
+            String content = new String(Files.readAllBytes(file.toPath()));
+            billingPayloadPublisher.sendMessage(content);
+
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+       
+
+        System.out.println("publish billpayload..............");
+
+    }
+
 
     @PostMapping("/publishBillingPayload")
     public void publishBillingPayload1(@RequestBody String message){
@@ -79,5 +100,7 @@ public class BillingMessageController {
        
 
     }
+
+
 
 }
