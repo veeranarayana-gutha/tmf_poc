@@ -9,13 +9,19 @@ import org.springframework.stereotype.Service;
 public class BillingPayloadPublisher {
 
     @Value("${spring.rabbitmq.exchange}")
-    private String exchangeName;
+    private String exchangeKey;
 
     @Value("${spring.rabbitmq.csp.routing_key}")
-    private String cspRoutingKeyName;
+    private String cspRoutingKey;
 
     @Value("${spring.rabbitmq.partner.routing_key}")
-    private String partnerRoutingKeyName;
+    private String partnerRoutingKey;
+
+   @Value("${spring.rabbitmq.integration.routing_key}") 
+    private String integrationRoutingKey;
+
+    @Value("${spring.rabbitmq.billingHub.routing_key}")
+    private String billingHubRoutingKey;
 
     private RabbitTemplate rabbitTemplate;
 
@@ -25,12 +31,22 @@ public class BillingPayloadPublisher {
 
 
     public void sendCspMessage(String message){
-        rabbitTemplate.convertAndSend(exchangeName,cspRoutingKeyName,message);
+        rabbitTemplate.convertAndSend(exchangeKey,cspRoutingKey,message);
 
     }
 
     public void sendPartnerMessage(String message){
-        rabbitTemplate.convertAndSend(exchangeName,partnerRoutingKeyName,message);
+        rabbitTemplate.convertAndSend(exchangeKey,partnerRoutingKey,message);
+
+    }
+
+    public void sendIntegratedPayloadMessage(String message){
+        rabbitTemplate.convertAndSend(exchangeKey,integrationRoutingKey,message);
+
+    }
+
+    public void sendBillingHubPayloadMessage(String message){
+        rabbitTemplate.convertAndSend(exchangeKey,billingHubRoutingKey,message);
 
     }
 }

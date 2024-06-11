@@ -1,0 +1,533 @@
+{
+    "@baseType": "CustomerBill",
+    "@type": "IntegratedCustomerBill",
+    "amountDue": {
+        "unit": "USD",
+        "value": 287.5
+    },
+    "appliedPayment": [],
+    "billCycle": {
+        "@baseType": "BillCycleRef",
+        "@referredType": "BillCycle",
+        "@type": "BillCycleRef",
+        "href": "http://server:port/tmf-api/Customer_Bill_Management/v5/billcycle/BC-0005",
+        "id": "BC-0005"
+    },
+    "billDate": "2024-05-05T00:00:00.000Z",
+    "runId": 1,
+    "state": "Integrated",
+    "billDocument": [],
+    "billingAccount": {
+        "@baseType": "BillingAccountRef",
+        "@referredType": "BillingAccount",
+        "@type": "BillingAccountRef",
+        "href": "http://host:port/tmf-api/Account_Management/v4/billingAccount/100001",
+        "id": "100001",
+        "name": "Peter Chang"
+    },
+    "billingPeriod": {
+        "@baseType": "TimePeriod",
+        "@type": "TimePeriod",
+        "startDateTime": "2024-04-06T00:00:00.000Z",
+        "endDateTime": "2024-05-05T23:59:59.000Z"
+    },
+    "billNo": "2024050000001",
+    "category": "normal",
+    "financialAccount": {
+        "@baseType": "FinancialAccountRef",
+        "@referredType": "FinancialAccount",
+        "@type": "FinancialAccountRef",
+        "href": "http://host:port/tmf-api/Account_Management/v4/financialAccount/FA100001",
+        "id": "FA100001",
+        "name": "Peter Chang"
+    },
+    "href": "http://server:port/tmf-api/Customer_Bill_Management/v5/customerBill/IBILL0000001",
+    "id": "IBILL0000001",
+    "lastUpdate": "2024-05-052T00:00:00.000Z",
+    "nextBillDate": "2024-06-05T00:00:00.000Z",
+    "paymentDueDate": "2024-05-31T00:00:00.000Z",
+    "paymentMethod": {},
+    "relatedParty": [
+        {
+            "role": "service provider",
+            "@type": "RelatedPartyRefOrPartyRoleRef",
+            "partyOrPartyRole": {
+                "@type": "PartyRefOrPartyRoleRef",
+                "@referredType": "Organization",
+                "href": "https://host:port/tmf-api/partyManagement/v5/party/128",
+                "id": "128",
+                "name": "Verizon Communications"
+            }
+        }
+    ],
+    "remainingAmount": {
+        "unit": "USD",
+        "value": 287.5
+    },
+    "runType": "regular bill run",
+    "status": "settled",
+    "taxExcludedAmount": {
+        "unit": "USD",
+        "value": 250.0
+    },
+    "taxIncludedAmount": {
+        "unit": "USD",
+        "value": 287.5
+    },
+    "taxItem": [
+        {
+            "@baseType": "TaxItem",
+            "@type": "TaxItem",
+            "taxAmount": {
+                "unit": "USD",
+                "value": 25.0
+            },
+            "taxCategory": "FederalTax",
+            "taxRate": 0.1
+        },
+        {
+            "@baseType": "TaxItem",
+            "@type": "TaxItem",
+            "taxAmount": {
+                "unit": "USD",
+                "value": 12.5
+            },
+            "taxCategory": "StateTax",
+            "taxRate": 0.05
+        }
+    ],
+    "appliedCustomerBillingRate": [
+        {
+            "@type": "AppliedCustomerBillingRate",
+            "appliedBillingRateType": "monthly",
+            "appliedTax": [
+                {
+                    "@baseType": "TaxItem",
+                    "@type": "TaxItem",
+                    "taxAmount": {
+                        "unit": "USD",
+                        "value": 8.0
+                    },
+                    "taxCategory": "FederalTax",
+                    "taxRate": 0.1
+                },
+                {
+                    "@baseType": "TaxItem",
+                    "@type": "TaxItem",
+                    "taxAmount": {
+                        "unit": "USD",
+                        "value": 4.0
+                    },
+                    "taxCategory": "StateTax",
+                    "taxRate": 0.05
+                }
+            ],
+            "date": "2024-05-05T00:00:00.000Z",
+            "description": "Unlimited Mobile Data Plan",
+            "href": "http://localhost:8004/Customer_Bill_Management/v5/appliedCustomerBillingRate/ABR110000001",
+            "id": "ABR110000001",
+            "isBilled": true,
+            "name": "Unlimited Mobile Data Plan",
+            "product": {
+                "@referredType": "Product",
+                "@type": "ProductRef",
+                "href": "http://localhost:8004/productInventoryManagement/v4/product/9001",
+                "id": 9001,
+                "name": "Unlimited Mobile Data Plan"
+            },
+            "taxExcludedAmount": {
+                "@type": "Money",
+                "unit": "USD",
+                "value": 80.0
+            },
+            "taxIncludedAmount": {
+                "@type": "Money",
+                "unit": "USD",
+                "value": 92.0
+            },
+            "characteristic": [
+                {
+                    "@type": "Characteristic",
+                    "id": "80000001",
+                    "name": "BundleId",
+                    "value": "9010"
+                },
+                {
+                    "@type": "Characteristic",
+                    "id": "80000002",
+                    "name": "LineOfServiceId",
+                    "value": "40000001"
+                },
+                {
+                    "@type": "Characteristic",
+                    "id": "80000003",
+                    "name": "Party",
+                    "value": "128"
+                },
+                {
+                    "@type": "Characteristic",
+                    "id": "80000012",
+                    "name": "BillingAccount",
+                    "value": "100001"
+                }
+            ]
+        },
+        {
+            "@type": "AppliedCustomerBillingRate",
+            "appliedBillingRateType": "monthly",
+            "appliedTax": [
+                {
+                    "@baseType": "TaxItem",
+                    "@type": "TaxItem",
+                    "taxAmount": {
+                        "unit": "USD",
+                        "value": 8.0
+                    },
+                    "taxCategory": "FederalTax",
+                    "taxRate": 0.1
+                },
+                {
+                    "@baseType": "TaxItem",
+                    "@type": "TaxItem",
+                    "taxAmount": {
+                        "unit": "USD",
+                        "value": 4.0
+                    },
+                    "taxCategory": "StateTax",
+                    "taxRate": 0.05
+                }
+            ],
+            "date": "2024-05-05T00:00:00.000Z",
+            "description": "Unlimited Mobile Data Plan",
+            "href": "http://localhost:8004/Customer_Bill_Management/v5/appliedCustomerBillingRate/ABR110000002",
+            "id": "ABR110000002",
+            "isBilled": true,
+            "name": "Unlimited Mobile Data Plan",
+            "product": {
+                "@referredType": "Product",
+                "@type": "ProductRef",
+                "href": "http://localhost:8004/productInventoryManagement/v4/product/9001",
+                "id": 9001,
+                "name": "Unlimited Mobile Data Plan"
+            },
+            "taxExcludedAmount": {
+                "@type": "Money",
+                "unit": "USD",
+                "value": 80.0
+            },
+            "taxIncludedAmount": {
+                "@type": "Money",
+                "unit": "USD",
+                "value": 92.0
+            },
+            "characteristic": [
+                {
+                    "@type": "Characteristic",
+                    "id": "80000004",
+                    "name": "BundleId",
+                    "value": "9010"
+                },
+                {
+                    "@type": "Characteristic",
+                    "id": "80000005",
+                    "name": "LineOfServiceId",
+                    "value": "40000002"
+                },
+                {
+                    "@type": "Characteristic",
+                    "id": "80000006",
+                    "name": "Party",
+                    "value": "128"
+                },
+                {
+                    "@type": "Characteristic",
+                    "id": "80000013",
+                    "name": "BillingAccount",
+                    "value": "100001"
+                }
+            ]
+        },
+        {
+            "@type": "AppliedCustomerBillingRate",
+            "appliedBillingRateType": "monthly",
+            "appliedTax": [
+                {
+                    "@baseType": "TaxItem",
+                    "@type": "TaxItem",
+                    "taxAmount": {
+                        "unit": "USD",
+                        "value": 8.0
+                    },
+                    "taxCategory": "FederalTax",
+                    "taxRate": 0.1
+                },
+                {
+                    "@baseType": "TaxItem",
+                    "@type": "TaxItem",
+                    "taxAmount": {
+                        "unit": "USD",
+                        "value": 4.0
+                    },
+                    "taxCategory": "StateTax",
+                    "taxRate": 0.05
+                }
+            ],
+            "date": "2024-05-05T00:00:00.000Z",
+            "description": "Unlimited Mobile Data Plan",
+            "href": "http://localhost:8004/Customer_Bill_Management/v5/appliedCustomerBillingRate/ABR110000003",
+            "id": "ABR110000003",
+            "isBilled": true,
+            "name": "Unlimited Mobile Data Plan",
+            "product": {
+                "@referredType": "Product",
+                "@type": "ProductRef",
+                "href": "http://localhost:8004/productInventoryManagement/v4/product/9001",
+                "id": 9001,
+                "name": "Unlimited Mobile Data Plan"
+            },
+            "taxExcludedAmount": {
+                "@type": "Money",
+                "unit": "USD",
+                "value": 80.0
+            },
+            "taxIncludedAmount": {
+                "@type": "Money",
+                "unit": "USD",
+                "value": 92.0
+            },
+            "characteristic": [
+                {
+                    "@type": "Characteristic",
+                    "id": "80000007",
+                    "name": "BundleId",
+                    "value": "9010"
+                },
+                {
+                    "@type": "Characteristic",
+                    "id": "80000008",
+                    "name": "LineOfServiceId",
+                    "value": "40000003"
+                },
+                {
+                    "@type": "Characteristic",
+                    "id": "80000009",
+                    "name": "Party",
+                    "value": "128"
+                },
+                {
+                    "@type": "Characteristic",
+                    "id": "80000014",
+                    "name": "BillingAccount",
+                    "value": "100001"
+                }
+            ]
+        },
+        {
+            "@type": "AppliedCustomerBillingRate",
+            "appliedBillingRateType": "monthly",
+            "appliedTax": [
+                {
+                    "@baseType": "TaxItem",
+                    "@type": "TaxItem",
+                    "taxAmount": {
+                        "unit": "USD",
+                        "value": -1.0
+                    },
+                    "taxCategory": "FederalTax",
+                    "taxRate": 0.1
+                },
+                {
+                    "@baseType": "TaxItem",
+                    "@type": "TaxItem",
+                    "taxAmount": {
+                        "unit": "USD",
+                        "value": -0.5
+                    },
+                    "taxCategory": "StateTax",
+                    "taxRate": 0.05
+                }
+            ],
+            "date": "2024-05-05T00:00:00.000Z",
+            "description": "Bundle Discount",
+            "href": "http://localhost:8004/Customer_Bill_Management/v5/appliedCustomerBillingRate/ABR110000004",
+            "id": "ABR110000004",
+            "isBilled": true,
+            "name": "Bundle Discount",
+            "product": {
+                "@referredType": "Product",
+                "@type": "ProductRef",
+                "href": "http://localhost:8004/productInventoryManagement/v4/product/8001",
+                "id": 8001,
+                "name": "Bundle Discount"
+            },
+            "taxExcludedAmount": {
+                "@type": "Money",
+                "unit": "USD",
+                "value": -10.0
+            },
+            "taxIncludedAmount": {
+                "@type": "Money",
+                "unit": "USD",
+                "value": -11.5
+            },
+            "characteristic": [
+                {
+                    "@type": "Characteristic",
+                    "id": "80000020",
+                    "name": "BundleId",
+                    "value": "9010"
+                },
+                     {
+                    "@type": "Characteristic",
+                    "id": "80000021",
+                    "name": "Party",
+                    "value": "128"
+                },
+                {
+                    "@type": "Characteristic",
+                    "id": "80000022",
+                    "name": "BillingAccount",
+                    "value": "100001"
+                }
+            ]
+        },
+        {
+            "@type": "AppliedCustomerBillingRate",
+            "appliedBillingRateType": "monthly",
+            "appliedTax": [
+                {
+                    "@baseType": "TaxItem",
+                    "@type": "TaxItem",
+                    "taxAmount": {
+                        "unit": "USD",
+                        "value": 1.0
+                    },
+                    "taxCategory": "FederalTax",
+                    "taxRate": 0.1
+                },
+                {
+                    "@baseType": "TaxItem",
+                    "@type": "TaxItem",
+                    "taxAmount": {
+                        "unit": "USD",
+                        "value": 0.5
+                    },
+                    "taxCategory": "StateTax",
+                    "taxRate": 0.05
+                }
+            ],
+            "date": "2024-05-05T00:00:00.000Z",
+            "description": "Disney Max Bundle",
+            "href": "http://localhost:8004/Customer_Bill_Management/v5/appliedCustomerBillingRate/ABR210000001",
+            "id": "ABR210000001",
+            "isBilled": true,
+            "name": "Disney Max Bundle",
+            "product": {
+                "@referredType": "Product",
+                "@type": "ProductRef",
+                "href": "http://localhost:8004/productInventoryManagement/v4/product/9002",
+                "id": 9002,
+                "name": "Disney Max Bundle"
+            },
+            "taxExcludedAmount": {
+                "@type": "Money",
+                "unit": "USD",
+                "value": 10.0
+            },
+            "taxIncludedAmount": {
+                "@type": "Money",
+                "unit": "USD",
+                "value": 11.5
+            },
+            "characteristic": [
+                {
+                    "@type": "Characteristic",
+                    "id": "80000010",
+                    "name": "BundleId",
+                    "value": "9010"
+                },
+                {
+                    "@type": "Characteristic",
+                    "id": "80000015",
+                    "name": "Party",
+                    "value": "200"
+                },
+                {
+                    "@type": "Characteristic",
+                    "id": "80000016",
+                    "name": "BillingAccount",
+                    "value": "200001"
+                }
+            ]
+        },
+        {
+            "@type": "AppliedCustomerBillingRate",
+            "appliedBillingRateType": "monthly",
+            "appliedTax": [
+                {
+                    "@baseType": "TaxItem",
+                    "@type": "TaxItem",
+                    "taxAmount": {
+                        "unit": "USD",
+                        "value": 1.0
+                    },
+                    "taxCategory": "FederalTax",
+                    "taxRate": 0.1
+                },
+                {
+                    "@baseType": "TaxItem",
+                    "@type": "TaxItem",
+                    "taxAmount": {
+                        "unit": "USD",
+                        "value": 0.5
+                    },
+                    "taxCategory": "StateTax",
+                    "taxRate": 0.05
+                }
+            ],
+            "date": "2024-05-05T00:00:00.000Z",
+            "description": "Netflix Package",
+            "href": "http://localhost:8004/Customer_Bill_Management/v5/appliedCustomerBillingRate/ABR210000002",
+            "id": "ABR210000002",
+            "isBilled": true,
+            "name": "Netflix Package",
+            "product": {
+                "@referredType": "Product",
+                "@type": "ProductRef",
+                "href": "http://localhost:8004/productInventoryManagement/v4/product/9003",
+                "id": 9003,
+                "name": "Netflix Package"
+            },
+            "taxExcludedAmount": {
+                "@type": "Money",
+                "unit": "USD",
+                "value": 10.0
+            },
+            "taxIncludedAmount": {
+                "@type": "Money",
+                "unit": "USD",
+                "value": 11.5
+            },
+            "characteristic": [
+                {
+                    "@type": "Characteristic",
+                    "id": "80000011",
+                    "name": "BundleId",
+                    "value": "9010"
+                },
+                {
+                    "@type": "Characteristic",
+                    "id": "80000017",
+                    "name": "Party",
+                    "value": "500"
+                },
+                {
+                    "@type": "Characteristic",
+                    "id": "80000018",
+                    "name": "BillingAccount",
+                    "value": "200002"
+                }
+            ]
+        }
+    ]
+}
